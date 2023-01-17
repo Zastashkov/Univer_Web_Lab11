@@ -4,12 +4,12 @@ function outNumAsLink($x, $type) // функция ВЫВОДИТ ЧИСЛО К�
 {
     if ($type == 'DIV') {
         if ($x <= 9)
-            return '<a href=main.php?html_type=DIV&content=' . $x . '> ' . $x . '</a>';
+            return '<a href=index.php?html_type=DIV&content=' . $x . '> ' . $x . '</a>';
         else
             return $x;
     } else {
         if ($x <= 9)
-            return '<a href=main.php?html_type=TABLE&content=' . $x . '> ' . $x . '</a>';
+            return '<a href=index.php?html_type=TABLE&content=' . $x . '> ' . $x . '</a>';
         else
             return $x;
     }
@@ -100,7 +100,7 @@ function outDivForm()
         <h3>Лабораторная работа 11</h3>
         <div id='main_menu'><?php
                             echo '<ul class = "horizontal-list">';
-                            echo '<li><a href="main.php?html_type=TABLE';
+                            echo '<li><a href="index.php?html_type=TABLE';
                             if (isset($_GET['content']))
                                 echo '&content=' . $_GET['content'] . '"';
                             echo '"';
@@ -109,7 +109,7 @@ function outDivForm()
                                     echo ' class="selected"';
                                 }
                             echo '>Табличная форма</a></li>';
-                            echo '<a href="main.php?html_type=DIV';
+                            echo '<a href="index.php?html_type=DIV';
                             if (isset($_GET['content']))
                                 echo '&content=' . $_GET['content'] . '"';
                             echo '"';
@@ -124,18 +124,18 @@ function outDivForm()
             <?php
             
             if (!isset($_GET['html_type']) && !isset($_GET['content'])) {
-                header("Location: main.php?html_type=TABLE&try=1");
+                header("Location: index.php?html_type=TABLE&try=1");
             }
             echo '<ul>';
-            echo '<li><a href=main.php'; // начало ссылки ВСЯ ТАБЛИЦА УМНОЖНЕНИЯ
+            echo '<li><a href=index.php'; // начало ссылки ВСЯ ТАБЛИЦА УМНОЖНЕНИЯ
             if (!isset($_GET['content'])) // если в скрипт НЕ был передан параметр content
                 echo ' class="selected"'; // ссылка выделяется через CSS-класс
             echo '>Вся таблица умножения</a></li>'; // конец ссылки
             for ($i = 2; $i <= 9; $i++) {
                 if (isset($_GET['html_type']))
-                    echo '<li><a href="main.php?html_type=' . $_GET['html_type'] . '&content=' . $i . '" '; // начало ссылки
-                echo '<li><a href="main.php?content=' . $i . '" '; // начало ссылки
-                /* echo '<li><a href="main.php?html_type=' . $_GET['html_type'] . '&content=' . $i . '" '; // начало ссылки*/
+                    echo '<li><a href="index.php?html_type=' . $_GET['html_type'] . '&content=' . $i . '" '; // начало ссылки
+                echo '<li><a href="index.php?content=' . $i . '" '; // начало ссылки
+                /* echo '<li><a href="index.php?html_type=' . $_GET['html_type'] . '&content=' . $i . '" '; // начало ссылки*/
                 /*|*/
                 if (isset($_GET['content']) && $_GET['content'] == $i)
                     echo ' class="selected"'; // ссылка выделяется через CSS-класс
